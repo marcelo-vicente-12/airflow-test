@@ -1,0 +1,42 @@
+[2024-05-22T21:55:03.633+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-22T21:55:03.648+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: disney_api.saving_raw_data manual__2024-05-22T21:54:58.292217+00:00 [queued]>
+[2024-05-22T21:55:03.656+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: disney_api.saving_raw_data manual__2024-05-22T21:54:58.292217+00:00 [queued]>
+[2024-05-22T21:55:03.658+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-05-22T21:55:03.669+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): saving_raw_data> on 2024-05-22 21:54:58.292217+00:00
+[2024-05-22T21:55:03.674+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'disney_api', 'saving_raw_data', 'manual__2024-05-22T21:54:58.292217+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/disney_api_dag.py', '--cfg-path', '/tmp/tmpuvqjo57m']
+[2024-05-22T21:55:03.677+0000] {standard_task_runner.py:91} INFO - Job 53: Subtask saving_raw_data
+[2024-05-22T21:55:03.678+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=731) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-05-22T21:55:03.679+0000] {standard_task_runner.py:63} INFO - Started process 733 to run task
+[2024-05-22T21:55:03.717+0000] {task_command.py:426} INFO - Running <TaskInstance: disney_api.saving_raw_data manual__2024-05-22T21:54:58.292217+00:00 [running]> on host 4f9488b8581a
+[2024-05-22T21:55:03.782+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='marcelo.vicente@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='disney_api' AIRFLOW_CTX_TASK_ID='saving_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-22T21:54:58.292217+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-22T21:54:58.292217+00:00'
+[2024-05-22T21:55:03.784+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-22T21:55:03.845+0000] {logging_mixin.py:188} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 50 entries, 0 to 49
+Data columns (total 15 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   _id              50 non-null     int64 
+ 1   films            50 non-null     object
+ 2   shortFilms       50 non-null     object
+ 3   tvShows          50 non-null     object
+ 4   videoGames       50 non-null     object
+ 5   parkAttractions  50 non-null     object
+ 6   allies           50 non-null     object
+ 7   enemies          50 non-null     object
+ 8   sourceUrl        50 non-null     object
+ 9   name             50 non-null     object
+ 10  imageUrl         48 non-null     object
+ 11  createdAt        50 non-null     object
+ 12  updatedAt        50 non-null     object
+ 13  url              50 non-null     object
+ 14  __v              50 non-null     int64 
+dtypes: int64(2), object(13)
+memory usage: 6.0+ KB
+[2024-05-22T21:55:03.845+0000] {logging_mixin.py:188} INFO - 50
+[2024-05-22T21:55:03.859+0000] {base.py:84} INFO - Using connection ID 'aws_default' for task execution.
+[2024-05-22T21:55:03.860+0000] {connection_wrapper.py:384} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-05-22T21:55:05.104+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-05-22T21:55:05.105+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-22T21:55:05.114+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=disney_api, task_id=saving_raw_data, run_id=manual__2024-05-22T21:54:58.292217+00:00, execution_date=20240522T215458, start_date=20240522T215503, end_date=20240522T215505
+[2024-05-22T21:55:05.152+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-22T21:55:05.162+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

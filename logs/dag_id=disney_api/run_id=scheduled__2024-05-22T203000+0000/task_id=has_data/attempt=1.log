@@ -1,0 +1,22 @@
+[2024-05-22T20:40:22.510+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-22T20:40:22.522+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: disney_api.has_data scheduled__2024-05-22T20:30:00+00:00 [queued]>
+[2024-05-22T20:40:22.530+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: disney_api.has_data scheduled__2024-05-22T20:30:00+00:00 [queued]>
+[2024-05-22T20:40:22.531+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-05-22T20:40:22.542+0000] {taskinstance.py:2330} INFO - Executing <Task(BranchPythonOperator): has_data> on 2024-05-22 20:30:00+00:00
+[2024-05-22T20:40:22.548+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5319) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-05-22T20:40:22.550+0000] {standard_task_runner.py:63} INFO - Started process 5323 to run task
+[2024-05-22T20:40:22.548+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'disney_api', 'has_data', 'scheduled__2024-05-22T20:30:00+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/disney_api_dag.py', '--cfg-path', '/tmp/tmpxsmo61fo']
+[2024-05-22T20:40:22.551+0000] {standard_task_runner.py:91} INFO - Job 44: Subtask has_data
+[2024-05-22T20:40:22.595+0000] {task_command.py:426} INFO - Running <TaskInstance: disney_api.has_data scheduled__2024-05-22T20:30:00+00:00 [running]> on host b4db1197dafa
+[2024-05-22T20:40:22.695+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='marcelo.vicente@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='disney_api' AIRFLOW_CTX_TASK_ID='has_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-22T20:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-22T20:30:00+00:00'
+[2024-05-22T20:40:22.697+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-22T20:40:22.710+0000] {baseoperator.py:399} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2024-05-22T20:40:22.772+0000] {python.py:237} INFO - Done. Returned value was: processing_data
+[2024-05-22T20:40:22.773+0000] {branch.py:36} INFO - Branch into processing_data
+[2024-05-22T20:40:22.773+0000] {skipmixin.py:178} INFO - Following branch processing_data
+[2024-05-22T20:40:22.788+0000] {skipmixin.py:246} INFO - Skipping tasks [('alarm_dag', -1)]
+[2024-05-22T20:40:22.810+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-22T20:40:22.828+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=disney_api, task_id=has_data, run_id=scheduled__2024-05-22T20:30:00+00:00, execution_date=20240522T203000, start_date=20240522T204022, end_date=20240522T204022
+[2024-05-22T20:40:22.885+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-22T20:40:22.906+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-22T20:40:22.909+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

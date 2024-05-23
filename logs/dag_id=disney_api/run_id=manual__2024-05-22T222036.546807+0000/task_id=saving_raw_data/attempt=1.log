@@ -1,0 +1,79 @@
+[2024-05-22T22:20:41.561+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-22T22:20:41.584+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: disney_api.saving_raw_data manual__2024-05-22T22:20:36.546807+00:00 [queued]>
+[2024-05-22T22:20:41.596+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: disney_api.saving_raw_data manual__2024-05-22T22:20:36.546807+00:00 [queued]>
+[2024-05-22T22:20:41.597+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-05-22T22:20:41.612+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): saving_raw_data> on 2024-05-22 22:20:36.546807+00:00
+[2024-05-22T22:20:41.619+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1680) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-05-22T22:20:41.620+0000] {standard_task_runner.py:63} INFO - Started process 1682 to run task
+[2024-05-22T22:20:41.619+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'disney_api', 'saving_raw_data', 'manual__2024-05-22T22:20:36.546807+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/disney_api_dag.py', '--cfg-path', '/tmp/tmpnf13yuqe']
+[2024-05-22T22:20:41.622+0000] {standard_task_runner.py:91} INFO - Job 83: Subtask saving_raw_data
+[2024-05-22T22:20:41.677+0000] {task_command.py:426} INFO - Running <TaskInstance: disney_api.saving_raw_data manual__2024-05-22T22:20:36.546807+00:00 [running]> on host 4f9488b8581a
+[2024-05-22T22:20:41.755+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='marcelo.vicente@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='disney_api' AIRFLOW_CTX_TASK_ID='saving_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-22T22:20:36.546807+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-22T22:20:36.546807+00:00'
+[2024-05-22T22:20:41.756+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-22T22:20:41.809+0000] {logging_mixin.py:188} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 50 entries, 0 to 49
+Data columns (total 15 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   _id              50 non-null     int64 
+ 1   films            50 non-null     object
+ 2   shortFilms       50 non-null     object
+ 3   tvShows          50 non-null     object
+ 4   videoGames       50 non-null     object
+ 5   parkAttractions  50 non-null     object
+ 6   allies           50 non-null     object
+ 7   enemies          50 non-null     object
+ 8   sourceUrl        50 non-null     object
+ 9   name             50 non-null     object
+ 10  imageUrl         48 non-null     object
+ 11  createdAt        50 non-null     object
+ 12  updatedAt        50 non-null     object
+ 13  url              50 non-null     object
+ 14  __v              50 non-null     int64 
+dtypes: int64(2), object(13)
+memory usage: 6.0+ KB
+[2024-05-22T22:20:41.810+0000] {logging_mixin.py:188} INFO - 50
+[2024-05-22T22:20:41.821+0000] {base.py:84} INFO - Using connection ID 'aws_default' for task execution.
+[2024-05-22T22:20:41.822+0000] {connection_wrapper.py:384} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2024-05-22T22:20:44.134+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-22T22:20:44.136+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/disney_api_dag.py", line 56, in saving_raw_data
+    df_01 = pd.read_parquet(s3_raw_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 670, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/io/parquet.py", line 272, in read
+    pa_table = self.api.parquet.read_table(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyarrow/parquet/core.py", line 1762, in read_table
+    dataset = ParquetDataset(
+              ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyarrow/parquet/core.py", line 1315, in __init__
+    finfo = filesystem.get_file_info(path_or_paths)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pyarrow/_fs.pyx", line 584, in pyarrow._fs.FileSystem.get_file_info
+  File "pyarrow/error.pxi", line 154, in pyarrow.lib.pyarrow_internal_check_status
+  File "pyarrow/error.pxi", line 91, in pyarrow.lib.check_status
+OSError: When getting information for key 'input/disney/character/*.parquet' in bucket 'mvs-sync': AWS Error ACCESS_DENIED during HeadObject operation: No response body.
+[2024-05-22T22:20:44.151+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=disney_api, task_id=saving_raw_data, run_id=manual__2024-05-22T22:20:36.546807+00:00, execution_date=20240522T222036, start_date=20240522T222041, end_date=20240522T222044
+[2024-05-22T22:20:44.163+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 83 for task saving_raw_data (When getting information for key 'input/disney/character/*.parquet' in bucket 'mvs-sync': AWS Error ACCESS_DENIED during HeadObject operation: No response body.; 1682)
+[2024-05-22T22:20:44.210+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-05-22T22:20:44.231+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-22T22:20:44.236+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

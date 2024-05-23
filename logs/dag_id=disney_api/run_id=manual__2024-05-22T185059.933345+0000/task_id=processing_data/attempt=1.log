@@ -1,0 +1,38 @@
+[2024-05-22T18:51:05.333+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-22T18:51:05.356+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: disney_api.processing_data manual__2024-05-22T18:50:59.933345+00:00 [queued]>
+[2024-05-22T18:51:05.365+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: disney_api.processing_data manual__2024-05-22T18:50:59.933345+00:00 [queued]>
+[2024-05-22T18:51:05.366+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-05-22T18:51:05.377+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): processing_data> on 2024-05-22 18:50:59.933345+00:00
+[2024-05-22T18:51:05.387+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'disney_api', 'processing_data', 'manual__2024-05-22T18:50:59.933345+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/disney_api_dag.py', '--cfg-path', '/tmp/tmp7ichjj31']
+[2024-05-22T18:51:05.389+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask processing_data
+[2024-05-22T18:51:05.392+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2720) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-05-22T18:51:05.393+0000] {standard_task_runner.py:63} INFO - Started process 2722 to run task
+[2024-05-22T18:51:05.430+0000] {task_command.py:426} INFO - Running <TaskInstance: disney_api.processing_data manual__2024-05-22T18:50:59.933345+00:00 [running]> on host b4db1197dafa
+[2024-05-22T18:51:05.530+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='marcelo.vicente@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='disney_api' AIRFLOW_CTX_TASK_ID='processing_data' AIRFLOW_CTX_EXECUTION_DATE='2024-05-22T18:50:59.933345+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-22T18:50:59.933345+00:00'
+[2024-05-22T18:51:05.532+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-22T18:51:05.551+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-22T18:51:05.552+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 233, in execute
+    self.op_kwargs = self.determine_kwargs(context)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 244, in determine_kwargs
+    return KeywordParameters.determine(self.python_callable, self.op_args, context).unpacking()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 163, in determine
+    raise ValueError(f"The key {name!r} in args is a part of kwargs and therefore reserved.")
+ValueError: The key 'ti' in args is a part of kwargs and therefore reserved.
+[2024-05-22T18:51:05.574+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=disney_api, task_id=processing_data, run_id=manual__2024-05-22T18:50:59.933345+00:00, execution_date=20240522T185059, start_date=20240522T185105, end_date=20240522T185105
+[2024-05-22T18:51:05.624+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 16 for task processing_data (The key 'ti' in args is a part of kwargs and therefore reserved.; 2722)
+[2024-05-22T18:51:05.649+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-05-22T18:51:05.693+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-22T18:51:05.699+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
